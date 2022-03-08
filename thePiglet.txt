@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+    <style>
+      body {
+        background-color: black;
+        color: white;
+      }
+
+      .pink-text {
+        color: pink;
+      }
+
+      h1 {
+        font-family: Lobster, monospace;
+        color: white;
+      }
+
+      p {
+        font-size: 16px;
+        font-family: monospace;
+      }
+
+      .thick-pink-border {
+        border-color: pink;
+        border-width: 5px;
+        border-style: solid;
+        border-radius: 10%;
+      }
+
+      .smaller-image {
+        width: 100px;
+      }
+
+      .really-small-image {
+        width: 40px;
+      }
+    </style>
+    <title>The Piglet</title>
+  </head>
+  
+  <body>
+    <h1>The Piglet</h1>
+      <a href="#"><img class="smaller-image thick-pink-border" src=https://discourse.disneyheroesgame.com/uploads/default/original/3X/2/7/2744569a81bf03dd421bff4de90a5979cbb534c7.png alt="A cute Piglet."></a>
+
+  <div>
+    <p>Things Piglet is afraid of:</p>
+    <ul>
+      <li>darkness</li>
+      <li>heffalumps</li>
+      <li>bees</li>
+    </ul>
+
+    <label class="pink-text">That's how scared Piglet looks like:</label>
+    <a href="#"><img class="really-small-image" src=https://31.media.tumblr.com/14506fb6f7cb440c12191a560e7c6933/tumblr_mjvdxskwBJ1r6mgsco2_r1_250.gif alt="A scared Piglet."></a>
+  </div>
+  <br>
+
+  <form action="https://freecatphotoapp.com/submit-cat-photo">
+    <label>Who is Piglets best friend:</label><br>
+    <label><input type="radio" name="best-friend" checked> Winnie the Pooh</label>
+    <label><input type="radio" name="best-friend"> Christopher</label><br>
+    <br>
+    <label>Which characters appear with Piglet:</label><br>
+    <label><input type="checkbox" name="characters"> Tiger</label>
+    <label><input type="checkbox" name="characters" checked> Pluto</label>
+    <label><input type="checkbox" name="characters"> Roo</label><br>
+
+    <br>
+    <input type="text" placeholder="Piglet photo URL" required>
+    <button type="submit">Submit</button>
+  </form>
+
+  </body>
+</html>
