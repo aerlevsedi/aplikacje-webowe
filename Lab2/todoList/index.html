@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>TODO List</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <script src="demo.js"></script>
+
+        <meta charset="UTF-8" >
+        <style>
+            #modal{
+                display: none;
+                z-index: 1;
+                position: fixed;
+                background-color: rgba(0,0,0,0.6);
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+            }
+
+            .thick-pink-border {
+                border-color: pink;
+                border-width: 5px;
+                border-style: solid;
+                border-radius: 0%;
+            }
+
+            .checked-task {
+                background-color: #797979;
+            }
+        </style>
+    </head>
+    <body>
+            <label class="input-group-text" for="new-task">Add new task:</label>
+            <input style="width: 400px;" id="new-task"/>
+
+            <button id="add" onclick="addNewTask()" class="btn btn-primary">+</button>
+
+        </div>
+        <div id="tasks-list">
+            <h2>Tasks:</h2>
+        </div>
+
+        <div id="modal">
+            <h1>This is sparta</h1>
+        </div>
+
+        <div>
+            <p onclick="test(2)" class="thick-pink-border">Test</p>
+        </div>
+
+    </body>
+
+</html>
