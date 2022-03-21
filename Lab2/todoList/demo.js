@@ -17,29 +17,40 @@ const addNewTask = () => {
 	if (newTask === '') {
 		console.error('input is empty');
 		$('#modal').toggle('slow');
+		return;
 	}
 
 	console.log(`Task: ${newTask}`);
 
 	const listOfTasks = document.getElementById('tasks-list');
 
-	const newDIV = document.createElement('div'); //<div></div>
+	const newDIV = document.createElement('li'); //<div></div>
 	newDIV.style.backgroundColor = 'white';
+	newDIV.className = 'list-group-item';
+
+	const newButton = document.createElement('button');
+	newButton.type = 'button';
+	newButton.className = 'btn btn-default';
+	newButton.innerHTML = 'X';
+	newButton.onclick = function () {
+		listOfTasks.removeChild(newDIV);
+	};
+	newDIV.appendChild(newButton);
+
 	const newP_Task = document.createElement('p');
-	newP_Task.innerHTML = newTask;
-	newDIV.appendChild(newP_Task);
-	newDIV.onclick = function () {
+	newP_Task.innerHTML = ` ${newTask}`;
+	newP_Task.style.display = 'inline';
+
+	newP_Task.onclick = function () {
 		taskClicked(newDIV);
 	};
+	newDIV.appendChild(newP_Task);
 
-	// newDIV.appendChild(newP_Task);
-	// newP.innerHTML = `<p id=task1 onclick="checkTask(this)" class=thick-pink-border>${newTask}</p>`;
 	listOfTasks.append(newDIV);
-	// listOfTasks.append(newP_Task);
 };
 
 const taskClicked = (element) => {
-	const task = element.children[0];
+	const task = element.children[1];
 	task.style.display = 'inline';
 
 	console.log(`Kupa: ${element.innerHTML}`);
@@ -49,7 +60,7 @@ const taskClicked = (element) => {
 		task.style.textDecoration = 'none';
 
 		if (element.hasChildNodes()) {
-			element.removeChild(element.children[1]);
+			element.removeChild(element.children[2]);
 		}
 	} else {
 		element.style.backgroundColor = 'grey';
@@ -62,7 +73,12 @@ const taskClicked = (element) => {
 
 		newP_Date.innerHTML = ` [${date.toLocaleDateString()} ${date.getHours()}:${date.getMinutes()}]`;
 		newP_Date.style.display = 'inline';
+		newP_Date.onclick = function () {
+			taskClicked(element);
+		};
 
 		element.appendChild(newP_Date);
 	}
 };
+
+const removeTask = (element) => {};
