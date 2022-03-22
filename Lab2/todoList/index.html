@@ -8,8 +8,13 @@
 
         <meta charset="UTF-8" >
         <style>
+            body {
+                font-family: monospace;
+            }
+
             .tasks-list{
-                width: 50%;
+                margin: auto;
+                text-align: center;
             }
             #modal{
                 display: none;
@@ -43,23 +48,55 @@
             .checked-task {
                 background-color: #797979;
             }
+
+            .center-text {
+                text-align: center;
+                padding-top: 10px;
+            }
+
+            .task-input {
+                margin: auto;
+                text-align: center;
+            }
+
+            .title-box {
+                background-color: darksalmon;
+                height: 50px;
+                text-align: center;
+                padding: 10px;
+                font-family: 'Trebuchet MS', sans-serif;
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            .button {
+                transition-duration: 0.4s;
+            }
+
+            .button:hover {
+                background-color: #4CAF50; /* Green */
+                color: white;
+            }
+
         </style>
     </head>
     <body>
-            <label class="input-group-text" style="text-align: center;">Your TODO List</label>
-            <div class="row"></div>
-                <div class="col-lg-6">
-                    <div class="input-group">
-                        <input type="text" id="new-task" class="form-control" placeholder="Enter new task">
-                        <span class="input-group-btn">
-                        <button class="btn btn-default" id="add" onclick="addNewTask()" type="button">Add</button>
-                        </span>
-                    </div>
+        <div class="title-box">
+            Your TODO Lists
+        </div>
+
+        <div class="row justify-content-center task-input">
+            <div class="col-md-6">
+                <div class="input-group center-text">
+                    <input type="text" id="new-task" class="form-control" placeholder="Enter new task">
+                    <span class="input-group-btn">
+                        <button class="btn btn-outline-secondary" id="add" onclick="addNewTask()" type="button">Add</button>
+                    </span>
                 </div>
             </div>
         </div>
         
-        <ul id="tasks-list" class="list-group, tasks-list">
+        <ul id="tasks-list" class="list-group tasks-list">
             <h2>Tasks:</h2>
         </ul>
 
