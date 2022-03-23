@@ -35,7 +35,7 @@ const addNewTask = () => {
 	const newLI = document.createElement('li');
 	newLI.id = 'listElem';
 	newLI.className = 'list-group-item tasks-list';
-	newLI.style.backgroundColor = 'white';
+	newLI.style.backgroundColor = '#f7cac9';
 	newLI.style.textAlign = 'left';
 	newLI.style.width = '500px';
 
@@ -45,7 +45,7 @@ const addNewTask = () => {
 				type: 'button',
 				id: 'rmButtonID',
 				innerHTML: 'X',
-				class: 'btn btn-default',
+				class: 'btn btn-default buttonRemoveTask',
 			})
 			.click(function () {
 				console.log('Hello');
@@ -69,8 +69,6 @@ const addNewTask = () => {
 const taskClicked = (element) => {
 	const task = element.children[1];
 	task.style.display = 'inline';
-
-	console.log(`Kupa: ${element.innerHTML}`);
 
 	if (element.style.backgroundColor === 'grey') {
 		element.style.backgroundColor = 'white';

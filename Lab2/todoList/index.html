@@ -10,6 +10,7 @@
         <style>
             body {
                 font-family: monospace;
+                background-color: lightgray;
             }
 
             .tasks-list{
@@ -60,7 +61,7 @@
             }
 
             .title-box {
-                background-color: darksalmon;
+                background-color: #f7cac9;
                 height: 50px;
                 text-align: center;
                 padding: 10px;
@@ -69,12 +70,21 @@
                 font-weight: bold;
             }
 
-            .button {
+            .buttonRemoveTask {
                 transition-duration: 0.4s;
             }
 
-            .button:hover {
-                background-color: #4CAF50; /* Green */
+            .buttonRemoveTask:hover {
+                background-color:#eca1a6;
+                color: white;
+            }
+
+            .pink-button {
+                transition-duration: 0.4s;
+            }
+
+            .pink-button:hover {
+                background-color:#eca1a6;
                 color: white;
             }
 
@@ -90,7 +100,7 @@
                 <div class="input-group center-text">
                     <input type="text" id="new-task" class="form-control" placeholder="Enter new task">
                     <span class="input-group-btn">
-                        <button class="btn btn-outline-secondary" id="add" onclick="addNewTask()" type="button">Add</button>
+                        <button class="btn btn-outline-secondary pink-button" id="add" onclick="addNewTask()" type="button">Add</button>
                     </span>
                 </div>
             </div>
