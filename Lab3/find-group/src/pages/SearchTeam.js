@@ -32,7 +32,7 @@ class SearchTeam extends React.Component {
 			.filter((it) => it.tags.includes(this.state.tagsQuery))
 			.map((it, i) => {
 				return (
-					<div key={i} class="notice">
+					<div key={i} class="grid-item">
 						<p class="notice-name">{it.name}</p>
 						<div>
 							Team members:
@@ -42,9 +42,14 @@ class SearchTeam extends React.Component {
 							<p>{it.membersList.member4.name}</p>
 							<p>{it.membersList.member5.name}</p>
 						</div>
-						<p class="notice-description">Description: {it.description}</p>
-						<p>Tags: {it.tags}</p>
-						<p>Class: {it.class}</p>
+						<label className="notice-description-label">Description</label>
+						<p className="notice-description">{it.description}</p>
+
+						<label className="notice-tags-label">Tags</label>
+						<p className="notice-tags">{it.tags}</p>
+
+						<label className="notice-class-label">Class</label>
+						<p className="notice-class">{it.class}</p>
 					</div>
 				);
 			});
@@ -71,7 +76,7 @@ class SearchTeam extends React.Component {
 					onChange={this.handleSearchByClass}
 				/>
 				<label>Search by class</label>
-				{teamsListHTML}
+				<div class="grid-container">{teamsListHTML}</div>
 			</div>
 		);
 	}

@@ -112,19 +112,24 @@ const AddTeam = (props) => {
 
 	const teamsListHTML = teamsList.map((it, i) => {
 		return (
-			<div key={i} class="notice">
+			<div key={i} class="grid-item">
 				<p class="notice-name">{it.name}</p>
-				<div>
-					Team members:
-					<p>{it.membersList.member1.name}</p>
-					<p>{it.membersList.member2.name}</p>
-					<p>{it.membersList.member3.name}</p>
-					<p>{it.membersList.member4.name}</p>
-					<p>{it.membersList.member5.name}</p>
+				<div className="notice-members">
+					<label class="notice-members-label">Team members</label>
+					<p className="notice-member">{it.membersList.member1.name}</p>
+					<p className="notice-member">{it.membersList.member2.name}</p>
+					<p className="notice-member">{it.membersList.member3.name}</p>
+					<p className="notice-member">{it.membersList.member4.name}</p>
+					<p className="notice-member">{it.membersList.member5.name}</p>
 				</div>
-				<p class="notice-description">Description: {it.description}</p>
-				<p>Tags: {it.tags}</p>
-				<p>Class: {it.class}</p>
+				<label className="notice-description-label">Description</label>
+				<p className="notice-description">{it.description}</p>
+
+				<label className="notice-tags-label">Tags</label>
+				<p className="notice-tags">{it.tags}</p>
+
+				<label className="notice-class-label">Class</label>
+				<p className="notice-class">{it.class}</p>
 			</div>
 		);
 	});
@@ -136,66 +141,68 @@ const AddTeam = (props) => {
 				onChange={handleNewName}
 				placeholder="team name"
 			/>
-			<input
-				type="text"
-				value={newMember1Name}
-				onChange={handleNewMember1Name}
-				placeholder="member1 name"
-			/>
-			<input
-				type="text"
-				value={newMember1Email}
-				onChange={handleNewMember1Email}
-				placeholder="member1 email"
-			/>
-			<input
-				type="text"
-				value={newMember2Name}
-				onChange={handleNewMember2Name}
-				placeholder="member2 name"
-			/>
-			<input
-				type="text"
-				value={newMember2Email}
-				onChange={handleNewMember2Email}
-				placeholder="member2 email"
-			/>
-			<input
-				type="text"
-				value={newMember3Name}
-				onChange={handleNewMember3Name}
-				placeholder="member3 name"
-			/>
-			<input
-				type="text"
-				value={newMember3Email}
-				onChange={handleNewMember3Email}
-				placeholder="member3 email"
-			/>
-			<input
-				type="text"
-				value={newMember4Name}
-				onChange={handleNewMember4Name}
-				placeholder="member4 name"
-			/>
-			<input
-				type="text"
-				value={newMember4Email}
-				onChange={handleNewMember4Email}
-				placeholder="member4 email"
-			/>
-			<input
-				type="text"
-				value={newMember5Name}
-				onChange={handleNewMember5Name}
-				placeholder="member5 name"
-			/>
-			<input
-				type="text"
-				value={newMember5Email}
-				onChange={handleNewMember5Email}
-				placeholder="member5 email"
-			/>
+			<div className="grid-container-inputs">
+				<input
+					type="text"
+					value={newMember1Name}
+					onChange={handleNewMember1Name}
+					placeholder="member1 name"
+				/>
+				<input
+					type="text"
+					value={newMember1Email}
+					onChange={handleNewMember1Email}
+					placeholder="member1 email"
+				/>
+				<input
+					type="text"
+					value={newMember2Name}
+					onChange={handleNewMember2Name}
+					placeholder="member2 name"
+				/>
+				<input
+					type="text"
+					value={newMember2Email}
+					onChange={handleNewMember2Email}
+					placeholder="member2 email"
+				/>
+				<input
+					type="text"
+					value={newMember3Name}
+					onChange={handleNewMember3Name}
+					placeholder="member3 name"
+				/>
+				<input
+					type="text"
+					value={newMember3Email}
+					onChange={handleNewMember3Email}
+					placeholder="member3 email"
+				/>
+				<input
+					type="text"
+					value={newMember4Name}
+					onChange={handleNewMember4Name}
+					placeholder="member4 name"
+				/>
+				<input
+					type="text"
+					value={newMember4Email}
+					onChange={handleNewMember4Email}
+					placeholder="member4 email"
+				/>
+				<input
+					type="text"
+					value={newMember5Name}
+					onChange={handleNewMember5Name}
+					placeholder="member5 name"
+				/>
+				<input
+					type="text"
+					value={newMember5Email}
+					onChange={handleNewMember5Email}
+					placeholder="member5 email"
+				/>
+			</div>
 			<input
 				type="text"
 				value={newDescription}
@@ -219,7 +226,8 @@ const AddTeam = (props) => {
 				value="Add new team notice"
 				onClick={handleAddNewItem}
 			/>
-			{teamsListHTML}
+
+			<div class="grid-container">{teamsListHTML}</div>
 		</div>
 	);
 };

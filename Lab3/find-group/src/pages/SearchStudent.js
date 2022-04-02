@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./../styles/Notice.css";
+import "./../styles/SearchStudent.css";
 
 const SearchStudent = (props) => {
 	const { studentsList, setStudentsList } = props;
@@ -21,17 +23,30 @@ const SearchStudent = (props) => {
 		setClassQuery(event.target.value);
 	};
 
+	const navigate = useNavigate();
+
+	const handleClick = (e) => {
+		console.log("Klikniete");
+		navigate("/message");
+	};
+
 	const studentsListHTML = studentsList
 		.filter((it) => it.description.includes(descriptionQuery))
 		.filter((it) => it.tags.includes(tagsQuery))
 		.filter((it) => it.class.includes(classQuery))
 		.map((it, i) => {
 			return (
-				<div key={i} class="notice">
-					<p class="notice-name">{it.person.name}</p>
-					<p class="notice-description">Description: {it.description}</p>
-					<p>Tags: {it.tags}</p>
-					<p>Class: {it.class}</p>
+				<div key={i} class="grid-item" onClick={handleClick}>
+					<p className="notice-name">{it.person.name}</p>
+
+					<label className="notice-description-label">Description</label>
+					<p className="notice-description">{it.description}</p>
+
+					<label className="notice-tags-label">Tags</label>
+					<p className="notice-tags">{it.tags}</p>
+
+					<label className="notice-class-label">Class</label>
+					<p className="notice-class">{it.class}</p>
 				</div>
 			);
 		});
@@ -50,7 +65,7 @@ const SearchStudent = (props) => {
 			<br></br>
 			<input type="text" value={classQuery} onChange={handleSearchByClass} />
 			<label> Search by class</label>
-			{studentsListHTML}
+			<div class="grid-container">{studentsListHTML}</div>
 		</div>
 	);
 };

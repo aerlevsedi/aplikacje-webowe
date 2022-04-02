@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "./../styles/Notice.css";
+import "./../styles/AddStudent.css";
 import "./SearchStudent.js";
 
 const AddStudent = (props) => {
@@ -53,48 +54,57 @@ const AddStudent = (props) => {
 
 	const studentsListHTML = studentsList.map((it, i) => {
 		return (
-			<div key={i} class="notice">
-				<p class="notice-name">{it.person.name}</p>
-				<p class="notice-description">Description: {it.description}</p>
-				<p>Tags: {it.tags}</p>
-				<p>Class: {it.class}</p>
+			<div key={i} class="grid-item">
+				<p className="notice-name">{it.person.name}</p>
+
+				<label className="notice-description-label">Description</label>
+				<p className="notice-description">{it.description}</p>
+
+				<label className="notice-tags-label">Tags</label>
+				<p className="notice-tags">{it.tags}</p>
+
+				<label className="notice-class-label">Class</label>
+				<p className="notice-class">{it.class}</p>
 			</div>
 		);
 	});
 	return (
-		<div className="App">
-			<input
-				type="text"
-				value={newName}
-				onChange={handleNewName}
-				placeholder="full name"
-			/>
-			<input
-				type="text"
-				value={newEmail}
-				onChange={handleNewEmail}
-				placeholder="email"
-			/>
-			<input
-				type="text"
-				value={newDescription}
-				onChange={handleNewDescription}
-				placeholder="description"
-			/>
-			<input
-				type="text"
-				value={newTags}
-				onChange={handleNewTags}
-				placeholder="tags"
-			/>
-			<input
-				type="text"
-				value={newClasses}
-				onChange={handleNewClasses}
-				placeholder="classes"
-			/>
-			<input type="button" value="Add new item" onClick={handleAddNewItem} />
-			{studentsListHTML}
+		<div className="form">
+			<form className="studentForm">
+				<input
+					type="text"
+					className="longInput"
+					value={newName}
+					onChange={handleNewName}
+					placeholder="full name"
+				/>
+				<input
+					type="text"
+					value={newEmail}
+					onChange={handleNewEmail}
+					placeholder="email"
+				/>
+				<input
+					type="text"
+					value={newDescription}
+					onChange={handleNewDescription}
+					placeholder="description"
+				/>
+				<input
+					type="text"
+					value={newTags}
+					onChange={handleNewTags}
+					placeholder="tags"
+				/>
+				<input
+					type="text"
+					value={newClasses}
+					onChange={handleNewClasses}
+					placeholder="classes"
+				/>
+				<input type="button" value="Add new item" onClick={handleAddNewItem} />
+				<div class="grid-container">{studentsListHTML}</div>
+			</form>
 		</div>
 	);
 };

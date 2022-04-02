@@ -4,6 +4,7 @@ import AddStudent from "./pages/AddStudent";
 import AddTeam from "./pages/AddTeam";
 import SearchTeam from "./pages/SearchTeam";
 import SearchStudent from "./pages/SearchStudent";
+import Messages from "./pages/Messages";
 import {
 	BrowserRouter,
 	NavLink,
@@ -101,7 +102,7 @@ function App() {
 	return (
 		<>
 			<header>
-				<h2>This is the header</h2>
+				<h2>Find your new teammates!</h2>
 			</header>
 			<main>
 				<BrowserRouter>
@@ -144,6 +145,8 @@ function App() {
 								<AddTeam teamsList={teamsList} setTeamsList={setTeamsList} />
 							}
 						/>
+
+						<Route path="/message" element={<Messages />} />
 					</Routes>
 				</BrowserRouter>
 			</main>
