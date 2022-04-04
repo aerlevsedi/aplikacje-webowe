@@ -150,7 +150,7 @@ function App() {
 					</Routes>
 				</BrowserRouter>
 			</main>
-			<footer>footer</footer>
+			{/* <footer>footer</footer> */}
 		</>
 	);
 	//return <Main toDosList={toDosList} setToDoList={setToDoList}/>

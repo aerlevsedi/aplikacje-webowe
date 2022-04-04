@@ -134,100 +134,122 @@ const AddTeam = (props) => {
 		);
 	});
 	return (
-		<div className="App">
-			<input
-				type="text"
-				value={newName}
-				onChange={handleNewName}
-				placeholder="team name"
-			/>
-			<div className="grid-container-inputs">
+		<div className="form">
+			<form className="teamForm">
+				<input
+					type="text"
+					value={newName}
+					className="longInput"
+					onChange={handleNewName}
+					placeholder="team name"
+				/>
+				<br></br>
+
+				<input
+					type="text"
+					value={newDescription}
+					className="longInput"
+					onChange={handleNewDescription}
+					placeholder="description"
+				/>
+				<input
+					type="text"
+					value={newTags}
+					className="longInput"
+					onChange={handleNewTags}
+					placeholder="tags"
+				/>
+				<input
+					type="text"
+					value={newClasses}
+					className="longInput"
+					onChange={handleNewClasses}
+					placeholder="classes"
+				/>
+				<br></br>
 				<input
 					type="text"
 					value={newMember1Name}
+					className="longInput"
 					onChange={handleNewMember1Name}
 					placeholder="member1 name"
 				/>
 				<input
 					type="text"
 					value={newMember1Email}
+					className="longInput"
 					onChange={handleNewMember1Email}
 					placeholder="member1 email"
 				/>
+				<br></br>
 				<input
 					type="text"
 					value={newMember2Name}
+					className="longInput"
 					onChange={handleNewMember2Name}
 					placeholder="member2 name"
 				/>
 				<input
 					type="text"
 					value={newMember2Email}
+					className="longInput"
 					onChange={handleNewMember2Email}
 					placeholder="member2 email"
 				/>
+				<br></br>
 				<input
 					type="text"
 					value={newMember3Name}
+					className="longInput"
 					onChange={handleNewMember3Name}
 					placeholder="member3 name"
 				/>
 				<input
 					type="text"
 					value={newMember3Email}
+					className="longInput"
 					onChange={handleNewMember3Email}
 					placeholder="member3 email"
 				/>
+				<br></br>
 				<input
 					type="text"
 					value={newMember4Name}
+					className="longInput"
 					onChange={handleNewMember4Name}
 					placeholder="member4 name"
 				/>
 				<input
 					type="text"
 					value={newMember4Email}
+					className="longInput"
 					onChange={handleNewMember4Email}
 					placeholder="member4 email"
 				/>
+				<br></br>
 				<input
 					type="text"
 					value={newMember5Name}
+					className="longInput"
 					onChange={handleNewMember5Name}
 					placeholder="member5 name"
 				/>
 				<input
 					type="text"
 					value={newMember5Email}
+					className="longInput"
 					onChange={handleNewMember5Email}
 					placeholder="member5 email"
 				/>
-			</div>
-			<input
-				type="text"
-				value={newDescription}
-				onChange={handleNewDescription}
-				placeholder="description"
-			/>
-			<input
-				type="text"
-				value={newTags}
-				onChange={handleNewTags}
-				placeholder="tags"
-			/>
-			<input
-				type="text"
-				value={newClasses}
-				onChange={handleNewClasses}
-				placeholder="classes"
-			/>
-			<input
-				type="button"
-				value="Add new team notice"
-				onClick={handleAddNewItem}
-			/>
-
-			<div class="grid-container">{teamsListHTML}</div>
+				<br></br>
+				<input
+					type="button"
+					className="longButton"
+					value="Add new team notice"
+					onClick={handleAddNewItem}
+				/>
+			</form>
+			{/* <div class="grid-container">{teamsListHTML}</div> */}
 		</div>
 	);
 };

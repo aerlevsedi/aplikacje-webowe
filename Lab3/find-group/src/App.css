@@ -62,7 +62,7 @@ section {
   flex-basis: 50%;
 }
 
-footer {
+/* footer {
   background-color:#282c34;
   min-height: 100px;
   width: 100%;
@@ -70,4 +70,4 @@ footer {
   left: 0;
   bottom: 0;
   right: 0;
-}
+} */

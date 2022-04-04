@@ -4,7 +4,7 @@
 	justify-content: center;
 }
 
-.studentForm {
+.teamForm {
     display: flex;
 	flex-direction: column;
 	width: 100%;

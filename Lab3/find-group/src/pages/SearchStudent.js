@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./../styles/Notice.css";
 import "./../styles/SearchStudent.css";
 
 const SearchStudent = (props) => {
-	const { studentsList, setStudentsList } = props;
+	const { studentsList, setReceiverName } = props;
 
 	const [descriptionQuery, setDescriptionQuery] = useState("");
 	const [tagsQuery, setTagsQuery] = useState("");
@@ -23,31 +23,31 @@ const SearchStudent = (props) => {
 		setClassQuery(event.target.value);
 	};
 
-	const navigate = useNavigate();
-
-	const handleClick = (e) => {
-		console.log("Klikniete");
-		navigate("/message");
-	};
-
 	const studentsListHTML = studentsList
 		.filter((it) => it.description.includes(descriptionQuery))
 		.filter((it) => it.tags.includes(tagsQuery))
 		.filter((it) => it.class.includes(classQuery))
 		.map((it, i) => {
 			return (
-				<div key={i} class="grid-item" onClick={handleClick}>
-					<p className="notice-name">{it.person.name}</p>
+				<NavLink
+					to="/message"
+					style={{ textDecoration: "none" }}
+					state={{ receiver: it.person.name }}
+					exact
+				>
+					<div key={i} className="grid-item">
+						<p className="notice-name">{it.person.name}</p>
 
-					<label className="notice-description-label">Description</label>
-					<p className="notice-description">{it.description}</p>
+						<label className="notice-label">Description</label>
+						<p className="notice-content">{it.description}</p>
 
-					<label className="notice-tags-label">Tags</label>
-					<p className="notice-tags">{it.tags}</p>
+						<label className="notice-label">Tags</label>
+						<p className="notice-content">{it.tags}</p>
 
-					<label className="notice-class-label">Class</label>
-					<p className="notice-class">{it.class}</p>
-				</div>
+						<label className="notice-label">Class</label>
+						<p className="notice-content">{it.class}</p>
+					</div>
+				</NavLink>
 			);
 		});
 
