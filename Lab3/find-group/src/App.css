@@ -1,0 +1,73 @@
+.App {
+  text-align: center;
+}
+
+header {
+  background-color: #282c34;
+  height: 50px;
+  min-height: 50px;
+  max-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(20px );
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.header, nav, main, footer {
+  margin: 2px;
+}
+
+main {
+  display: flex;
+  flex-grow: 1;
+}
+
+nav {
+  background-color:rgba(249, 162, 226, 0.548);
+  /* flex-grow: 1; */
+  flex-basis: 15%;
+  margin-right: 10px;
+  max-width: 210px;
+}
+
+nav a {
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+  border: 2px solid currentColor;
+  padding: 4px;
+  width: 200px;
+}
+
+nav a:hover {
+  border: 2px solid gray;
+  color: gray;
+  border-radius: 2px;
+}
+
+nav a.active {
+  background-color: rgba(221, 108, 191, 0.623);
+}
+
+section {
+  background-color: gray;
+  flex-grow: 5;
+  flex-basis: 50%;
+}
+
+/* footer {
+  background-color:#282c34;
+  min-height: 100px;
+  width: 100%;
+  position: "fixed";
+  left: 0;
+  bottom: 0;
+  right: 0;
+} */

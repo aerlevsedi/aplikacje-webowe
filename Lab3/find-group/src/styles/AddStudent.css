@@ -1,0 +1,66 @@
+.form {
+    display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.studentForm {
+    display: flex;
+	flex-direction: column;
+	width: 100%;
+	justify-content: top;
+	align-items: center;
+}
+
+.longInput {
+	width: 300px;
+	height: 48px;
+	font-size: 12px;
+	padding-left: 10px;
+	margin: 5px;
+}
+
+input:valid {
+	border: 2px solid black;
+}
+
+.error-message {
+    display: none;
+}
+
+input:not(:focus):not(:placeholder-shown):invalid {
+  border-color: red;
+}
+
+input:not(:focus):not(:placeholder-shown):invalid ~ .error-message {
+  display: block; 
+}
+
+input:not(:focus):not(:placeholder-shown):valid {
+  border-color: black;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.longButton {
+	width: 316px;
+	height: 52px;
+	font-size: 20px;
+	font-weight: lighter;
+	padding-left: 10px;
+	margin: 5px;
+	background-color: rgba(249, 162, 226, 0.548);
+	color: white;
+}
+
+.longButton:hover {
+	background-color: rgba(221, 108, 191, 0.623);
+	cursor:pointer;
+}
+
+/* textarea {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;;
+} */
