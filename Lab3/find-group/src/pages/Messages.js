@@ -1,8 +1,6 @@
-import React from "react";
-import { useState } from "react";
-import { Navigate, useNavigate, useLocation } from "react-router-dom";
-import "./../styles/Notice.css";
-import "./SearchStudent.js";
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import './SearchStudent.js';
 
 const Messages = () => {
 	const location = useLocation();
@@ -10,8 +8,8 @@ const Messages = () => {
 	console.log(receiver);
 
 	const handleSendMessage = () => {
-		window.confirm("You've sent a message to", { receiver });
-		console.log("message sent");
+		window.confirm("You've sent a message!");
+		console.log('message sent');
 	};
 
 	return (
@@ -21,13 +19,13 @@ const Messages = () => {
 			<textarea
 				rows={10}
 				cols={50}
-				placeholder="write here your message"
+				placeholder='write here your message'
 			></textarea>
 			<br></br>
 			<input
-				type="button"
-				className="longButton"
-				value="Send"
+				type='button'
+				className='longButton'
+				value='Send'
 				onClick={handleSendMessage}
 			></input>
 		</div>

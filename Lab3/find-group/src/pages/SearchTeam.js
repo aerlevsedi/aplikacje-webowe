@@ -1,11 +1,10 @@
-import React from "react";
-import "./../styles/Notice.css";
-import "./../styles/SearchTeam.css";
+import React from 'react';
+import './../styles/Search.css';
 
 class SearchTeam extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { descriptionQuery: "", tagsQuery: "", classQuery: "" };
+		this.state = { descriptionQuery: '', tagsQuery: '', classQuery: '' };
 	}
 
 	handleSearchByDescription = (event) => {
@@ -32,8 +31,18 @@ class SearchTeam extends React.Component {
 			.filter((it) => it.tags.includes(this.state.tagsQuery))
 			.map((it, i) => {
 				return (
-					<div key={i} class="grid-item">
-						<p class="notice-name">{it.name}</p>
+					<div key={i} class='grid-item-team'>
+						<p class='notice-name'>{it.name}</p>
+
+						<label className='notice-label'>Description</label>
+						<p className='notice-content'>{it.description}</p>
+
+						<label className='notice-label'>Tags</label>
+						<p className='notice-content'>{it.tags}</p>
+
+						<label className='notice-label'>Class</label>
+						<p className='notice-content'>{it.class}</p>
+
 						<div>
 							Team members:
 							<p>{it.membersList.member1.name}</p>
@@ -42,41 +51,42 @@ class SearchTeam extends React.Component {
 							<p>{it.membersList.member4.name}</p>
 							<p>{it.membersList.member5.name}</p>
 						</div>
-						<label className="notice-description-label">Description</label>
-						<p className="notice-description">{it.description}</p>
-
-						<label className="notice-tags-label">Tags</label>
-						<p className="notice-tags">{it.tags}</p>
-
-						<label className="notice-class-label">Class</label>
-						<p className="notice-class">{it.class}</p>
 					</div>
 				);
 			});
 
 		return (
 			<div>
-				<input
-					type="text"
-					value={this.state.descriptionQuery}
-					onChange={this.handleSearchByDescription}
-				/>
-				<label>Search by description</label>
-				<br></br>
-				<input
-					type="text"
-					value={this.state.tagsQuery}
-					onChange={this.handleSearchByTags}
-				/>
-				<label>Search by tags</label>
-				<br></br>
-				<input
-					type="text"
-					value={this.state.classQuery}
-					onChange={this.handleSearchByClass}
-				/>
-				<label>Search by class</label>
-				<div class="grid-container">{teamsListHTML}</div>
+				<div className='search-inputs'>
+					<div className='search-input'>
+						<label>Search by description</label>
+						<br></br>
+						<input
+							type='text'
+							value={this.state.descriptionQuery}
+							onChange={this.handleSearchByDescription}
+						/>
+					</div>
+					<div className='search-input'>
+						<label>Search by tags</label>
+						<br></br>
+						<input
+							type='text'
+							value={this.state.tagsQuery}
+							onChange={this.handleSearchByTags}
+						/>
+					</div>
+					<div className='search-input'>
+						<label>Search by class</label>
+						<br></br>
+						<input
+							type='text'
+							value={this.state.classQuery}
+							onChange={this.handleSearchByClass}
+						/>
+					</div>
+				</div>
+				<div class='grid-container'>{teamsListHTML}</div>
 			</div>
 		);
 	}
