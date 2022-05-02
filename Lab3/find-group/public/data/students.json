@@ -1,0 +1,33 @@
+[
+    {
+        "person": { "name": "Jan Kowalski", "email": "jankowalski@gmail.com" },
+        "description":
+            "Szukam miejsca w grupie na projekt z UCiSW i zrobię z tego bardzo długi opis, żeby sprawdzić formatowanie",
+        "tags": "vhdl, fpga",
+        "class": "UCISW"
+    },
+    {
+        "person": { "name": "Rafal Nowak", "email": "rafalnowak@gmail.com" },
+        "description": "Grupa na SO2, wtorki parzyste",
+        "tags": "C, C++",
+        "class": "SO2"
+    },
+    {
+        "person": { "name": "John Travolta", "email": "johntravolta@gmail.com" },
+        "description": "Szukam miejsca na webówkę, wtorek parzysty",
+        "tags": "react, node, js",
+        "class": "PIW"
+    },
+    {
+        "person": { "name": "Alicja Bober", "email": "alicjabober@gmail.com" },
+        "description": "Czwartek TN PO",
+        "tags": "java, spring",
+        "class": "PO"
+    },
+    {
+        "person": { "name": "Jan Brzechwa", "email": "janbrzechwa@gmail.com" },
+        "description": "Szukam pary na peryferyjne",
+        "tags": "dotnet C#",
+        "class": "UP"
+    }
+]

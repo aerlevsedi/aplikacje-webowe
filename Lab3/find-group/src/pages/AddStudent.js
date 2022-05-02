@@ -1,125 +1,86 @@
-import React from 'react';
-import { useState } from 'react';
-import './../styles/Search.css';
-import './../styles/AddStudent.css';
-import './SearchStudent.js';
+import React from "react";
+import { useRef } from "react";
+import "./../styles/Search.css";
+import "./../styles/AddStudent.css";
+import "./SearchStudent.js";
 
 const AddStudent = (props) => {
 	const { studentsList, setStudentsList } = props;
+	const inputNameRef = useRef();
+	const inputEmailRef = useRef();
+	const inputDescriptionRef = useRef();
+	const inputTagsRef = useRef();
+	const inputClassesRef = useRef();
 
-	const [newName, setNewName] = useState('');
-	const [newEmail, setNewEmail] = useState('');
-	const [newDescription, setNewDescription] = useState('');
-	const [newTags, setNewTags] = useState('');
-	const [newClasses, setNewClasses] = useState('');
+	console.log("rendered");
 
-	const handleNewName = (event) => {
-		setNewName(event.target.value);
-	};
-
-	const handleNewEmail = (event) => {
-		setNewEmail(event.target.value);
-	};
-
-	const handleNewDescription = (event) => {
-		setNewDescription(event.target.value);
-	};
-
-	const handleNewTags = (event) => {
-		setNewTags(event.target.value);
-	};
-
-	const handleNewClasses = (event) => {
-		setNewClasses(event.target.value);
-	};
-
-	const handleAddNewItem = () => {
+	const handleNewStudent = () => {
 		setStudentsList(
 			studentsList.concat([
 				{
-					person: { name: newName, email: newEmail },
-					description: newDescription,
-					tags: newTags,
-					class: newClasses,
+					person: {
+						name: [inputNameRef.current.value],
+						email: [inputEmailRef.current.value],
+					},
+					description: [inputDescriptionRef.current.value],
+					tags: [inputTagsRef.current.value],
+					class: [inputClassesRef.current.value],
 				},
 			])
 		);
-
-		setNewName('');
-		setNewEmail('');
-		setNewDescription('');
-		setNewTags('');
-		setNewClasses('');
+		inputNameRef.current.value = "";
+		inputEmailRef.current.value = "";
+		inputDescriptionRef.current.value = "";
+		inputTagsRef.current.value = "";
+		inputClassesRef.current.value = "";
 	};
 
-	const studentsListHTML = studentsList.map((it, i) => {
-		return (
-			<div key={i} class='grid-item'>
-				<p className='notice-name'>{it.person.name}</p>
-
-				<label className='notice-label'>Description</label>
-				<p className='notice-content'>{it.description}</p>
-
-				<label className='notice-label'>Tags</label>
-				<p className='notice-content'>{it.tags}</p>
-
-				<label className='notice-label'>Class</label>
-				<p className='notice-content'>{it.class}</p>
-			</div>
-		);
-	});
 	return (
-		<div className='form'>
-			<form className='studentForm'>
+		<div className="form">
+			<form className="studentForm">
 				<input
-					type='text'
-					className='longInput'
+					ref={inputNameRef}
+					type="text"
+					className="longInput"
 					required
-					value={newName}
-					onChange={handleNewName}
-					placeholder='full name'
+					placeholder="full name"
 				/>
 				<input
-					type='email'
-					className='longInput'
+					ref={inputEmailRef}
+					type="email"
+					className="longInput"
 					required
-					value={newEmail}
-					onChange={handleNewEmail}
-					placeholder='email'
+					placeholder="email"
 				/>
 				<input //textarea?
-					type='text'
+					ref={inputDescriptionRef}
+					type="text"
 					rows={5}
 					cols={50}
-					className='longInput'
+					className="longInput"
 					required
-					value={newDescription}
-					onChange={handleNewDescription}
-					placeholder='description'
+					placeholder="description"
 				/>
 				<input
-					type='text'
-					className='longInput'
+					ref={inputTagsRef}
+					type="text"
+					className="longInput"
 					required
-					value={newTags}
-					onChange={handleNewTags}
-					placeholder='tags'
+					placeholder="tags"
 				/>
 				<input
-					type='text'
-					className='longInput'
+					ref={inputClassesRef}
+					type="text"
+					className="longInput"
 					required
-					value={newClasses}
-					onChange={handleNewClasses}
-					placeholder='classes'
+					placeholder="classes"
 				/>
 				<input
-					type='button'
-					className='longButton'
-					value='Add new item'
-					onClick={handleAddNewItem}
+					type="button"
+					className="longButton"
+					value="Add new notice"
+					onClick={handleNewStudent}
 				/>
-				{/* <div class="grid-container">{studentsListHTML}</div> */}
 			</form>
 		</div>
 	);

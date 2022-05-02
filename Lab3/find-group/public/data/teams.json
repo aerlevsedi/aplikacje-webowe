@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Best Team",
+        "membersList": {
+            "member1": { "name": "Jan Kowalski", "email": "jankowalski@gmail.com" },
+            "member2": { "name": "Radek Konieczny", "email": "radekkonieczny@gmail.com" },
+            "member3": { "name": "Ada Lovelace", "email": "adalovelace@gmail.com" },
+            "member4": { "name": "", "email": "" },
+            "member5": { "name": "", "email": "" }
+        },
+        "description": "Jakiś opis",
+        "tags": "Linux, C, assembly",
+        "class": "OiAK"
+    },
+    {
+        "name": "Pierwsza",
+        "membersList": {
+            "member1": {
+                "name": "Hieronim Berbelek",
+                "email": "hieronimberbelek@gmail.com"
+            },
+            "member2": {
+                "name": "Władysław Łokietek",
+                "email": "wladyslawlokietek@gmail.com"
+            },
+            "member3": { "name": "", "email": "" },
+            "member4": { "name": "", "email": "" },
+            "member5": { "name": "", "email": "" }
+        },
+        "description": "Jakiś opis, ale ciut dłuższy",
+        "tags": "Godot engine, sandbox",
+        "class": "PIPG"
+    },
+    {
+        "name": "Czerwone korale",
+        "membersList": {
+            "member1": { "name": "Zbigniew Frącek", "email": "zbigniewfracek@gmail.com" },
+            "member2": {
+                "name": "Karol Waliszewski",
+                "email": "karolwaliszewski@gmail.com"
+            },
+            "member3": { "name": "Kamil Nawrot", "email": "kamilnawrot@gmail.com" },
+            "member4": { "name": "", "email": "" },
+            "member5": { "name": "", "email": "" }
+        },
+        "description": "Codzienne ostre klepanie kodu",
+        "tags": "C++, algo",
+        "class": "AISD"
+    }
+]
