@@ -138,7 +138,7 @@ function App() {
 						</BrowserRouter>
 					</main>
 
-					{/* <Footer /> */}
+					<Footer />
 				</LoggedInUserContext.Provider>
 			</ReducerContext.Provider>
 		</>

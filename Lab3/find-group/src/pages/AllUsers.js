@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useReducer } from "react";
+import { useReducer, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { initState, reducer, ReducerContext } from "../contexts/ReducerContext";
 import "./../styles/AllUsers.css";
@@ -8,8 +8,16 @@ import axios from "axios";
 const AllUsers = (props) => {
 	const { usersList } = props;
 	const [state, dispatch] = useReducer(reducer, initState);
-	const [images, setImages] = useState([]);
 	const imageUrl = "https://picsum.photos/100/50";
+
+	// const imageRef = useRef();
+
+	// const newImage = async () => {
+	// 	const res = await fetch(imageUrl);
+	// 	const imageBlob = await res.blob();
+	// 	const imageObjectURL = URL.createObjectURL(imageBlob);
+	// 	imageRef.current.value = imageObjectURL;
+	// };
 
 	const [img, setImg] = useState();
 
@@ -25,6 +33,7 @@ const AllUsers = (props) => {
 	}, []);
 
 	const usersListHTML = usersList.map((it, i) => {
+		// newImage();
 		return (
 			<ReducerContext.Provider value={[state, dispatch]}>
 				<div key={i} className="grid-item-user">
@@ -37,6 +46,7 @@ const AllUsers = (props) => {
 					>
 						<p className="notice-name">{it.name}</p>
 					</NavLink>
+					{/* <img src={imageRef.current.value} alt="icons" /> */}
 					<img src={img} alt="icons" />
 					<input
 						type="button"
