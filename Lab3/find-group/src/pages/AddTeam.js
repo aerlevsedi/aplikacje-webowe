@@ -1,113 +1,71 @@
-import React from "react";
-import { useState } from "react";
+import React, { useRef } from "react";
 import "./../styles/Search.css";
 
 const AddTeam = (props) => {
 	const { teamsList, setTeamsList } = props;
 
-	const [newName, setNewName] = useState("");
-	const [newMember1Name, setNewMember1Name] = useState("");
-	const [newMember1Email, setNewMember1Email] = useState("");
-	const [newMember2Name, setNewMember2Name] = useState("");
-	const [newMember2Email, setNewMember2Email] = useState("");
-	const [newMember3Name, setNewMember3Name] = useState("");
-	const [newMember3Email, setNewMember3Email] = useState("");
-	const [newMember4Name, setNewMember4Name] = useState("");
-	const [newMember4Email, setNewMember4Email] = useState("");
-	const [newMember5Name, setNewMember5Name] = useState("");
-	const [newMember5Email, setNewMember5Email] = useState("");
-	const [newDescription, setNewDescription] = useState("");
-	const [newTags, setNewTags] = useState("");
-	const [newClasses, setNewClasses] = useState("");
-
-	const handleNewName = (event) => {
-		setNewName(event.target.value);
-	};
-
-	const handleNewMember1Name = (event) => {
-		setNewMember1Name(event.target.value);
-	};
-
-	const handleNewMember1Email = (event) => {
-		setNewMember1Email(event.target.value);
-	};
-
-	const handleNewMember2Name = (event) => {
-		setNewMember2Name(event.target.value);
-	};
-
-	const handleNewMember2Email = (event) => {
-		setNewMember2Email(event.target.value);
-	};
-
-	const handleNewMember3Name = (event) => {
-		setNewMember3Name(event.target.value);
-	};
-
-	const handleNewMember3Email = (event) => {
-		setNewMember3Email(event.target.value);
-	};
-
-	const handleNewMember4Name = (event) => {
-		setNewMember4Name(event.target.value);
-	};
-
-	const handleNewMember4Email = (event) => {
-		setNewMember4Email(event.target.value);
-	};
-
-	const handleNewMember5Name = (event) => {
-		setNewMember5Name(event.target.value);
-	};
-
-	const handleNewMember5Email = (event) => {
-		setNewMember5Email(event.target.value);
-	};
-
-	const handleNewDescription = (event) => {
-		setNewDescription(event.target.value);
-	};
-
-	const handleNewTags = (event) => {
-		setNewTags(event.target.value);
-	};
-
-	const handleNewClasses = (event) => {
-		setNewClasses(event.target.value);
-	};
+	const inputTeamNameRef = useRef();
+	const inputMember1NameRef = useRef();
+	const inputMember2NameRef = useRef();
+	const inputMember3NameRef = useRef();
+	const inputMember4NameRef = useRef();
+	const inputMember5NameRef = useRef();
+	const inputMember1EmailRef = useRef();
+	const inputMember2EmailRef = useRef();
+	const inputMember3EmailRef = useRef();
+	const inputMember4EmailRef = useRef();
+	const inputMember5EmailRef = useRef();
+	const inputDescriptionRef = useRef();
+	const inputTagsRef = useRef();
+	const inputClassesRef = useRef();
 
 	const handleAddNewItem = () => {
 		setTeamsList(
 			teamsList.concat([
 				{
-					name: newName,
+					name: inputTeamNameRef.current.value,
 					membersList: {
-						member1: { name: newMember1Name, email: newMember1Email },
-						member2: { name: newMember2Name, email: newMember2Email },
-						member3: { name: newMember3Name, email: newMember3Email },
-						member4: { name: newMember4Name, email: newMember4Email },
-						member5: { name: newMember5Name, email: newMember5Email },
+						member1: {
+							name: inputMember1NameRef.current.value,
+							email: inputMember1EmailRef.current.value,
+						},
+						member2: {
+							name: inputMember2NameRef.current.value,
+							email: inputMember2EmailRef.current.value,
+						},
+						member3: {
+							name: inputMember3NameRef.current.value,
+							email: inputMember3EmailRef.current.value,
+						},
+						member4: {
+							name: inputMember4NameRef.current.value,
+							email: inputMember4EmailRef.current.value,
+						},
+						member5: {
+							name: inputMember5NameRef.current.value,
+							email: inputMember5EmailRef.current.value,
+						},
 					},
-					description: newDescription,
-					tags: newTags,
-					class: newClasses,
+					description: inputDescriptionRef.current.value,
+					tags: inputTagsRef.current.value,
+					class: inputClassesRef.current.value,
 				},
 			])
 		);
-		setNewName("");
-		setNewMember1Name("");
-		setNewMember1Email("");
-		setNewMember2Name("");
-		setNewMember2Email("");
-		setNewMember3Name("");
-		setNewMember3Email("");
-		setNewMember4Name("");
-		setNewMember4Email("");
-		setNewMember5Name("");
-		setNewMember5Email("");
-		setNewDescription("");
-		setNewTags("");
-		setNewClasses("");
+		inputTeamNameRef.current.value = "";
+		inputMember1NameRef.current.value = "";
+		inputMember2NameRef.current.value = "";
+		inputMember3NameRef.current.value = "";
+		inputMember4NameRef.current.value = "";
+		inputMember5NameRef.current.value = "";
+		inputMember1EmailRef.current.value = "";
+		inputMember2EmailRef.current.value = "";
+		inputMember3EmailRef.current.value = "";
+		inputMember4EmailRef.current.value = "";
+		inputMember5EmailRef.current.value = "";
+		inputDescriptionRef.current.value = "";
+		inputTagsRef.current.value = "";
+		inputClassesRef.current.value = "";
 	};
 
 	return (
@@ -116,115 +74,101 @@ const AddTeam = (props) => {
 				<label>Basic information</label>
 				<br></br>
 				<input
+					ref={inputTeamNameRef}
 					type="text"
-					value={newName}
 					required
 					className="longInput"
-					onChange={handleNewName}
 					placeholder="team name"
 				/>
 				<input
+					ref={inputDescriptionRef}
 					type="text"
-					value={newDescription}
 					required
 					className="longInput"
-					onChange={handleNewDescription}
 					placeholder="description"
 				/>
 				<br></br>
 				<input
+					ref={inputTagsRef}
 					type="text"
-					value={newTags}
 					required
 					className="longInput"
-					onChange={handleNewTags}
 					placeholder="tags"
 				/>
 				<input
+					ref={inputClassesRef}
 					type="text"
-					value={newClasses}
 					required
 					className="longInput"
-					onChange={handleNewClasses}
 					placeholder="classes"
 				/>
 				<br></br>
 				<label>Team members</label>
 				<br></br>
 				<input
+					ref={inputMember1NameRef}
 					type="text"
-					value={newMember1Name}
 					required
 					className="longInput"
-					onChange={handleNewMember1Name}
 					placeholder="member1 name"
 				/>
 				<input
+					ref={inputMember1EmailRef}
 					type="text"
-					value={newMember1Email}
 					required
 					className="longInput"
-					onChange={handleNewMember1Email}
 					placeholder="member1 email"
 				/>
 				<br></br>
 				<input
+					ref={inputMember2NameRef}
 					type="text"
-					value={newMember2Name}
 					className="longInput"
-					onChange={handleNewMember2Name}
 					placeholder="member2 name"
 				/>
 				<input
+					ref={inputMember2EmailRef}
 					type="text"
-					value={newMember2Email}
 					className="longInput"
-					onChange={handleNewMember2Email}
 					placeholder="member2 email"
 				/>
 				<br></br>
 				<input
+					ref={inputMember3NameRef}
 					type="text"
-					value={newMember3Name}
 					className="longInput"
-					onChange={handleNewMember3Name}
 					placeholder="member3 name"
 				/>
 				<input
+					ref={inputMember3EmailRef}
 					type="text"
-					value={newMember3Email}
 					className="longInput"
-					onChange={handleNewMember3Email}
 					placeholder="member3 email"
 				/>
 				<br></br>
 				<input
+					ref={inputMember4NameRef}
 					type="text"
-					value={newMember4Name}
 					className="longInput"
-					onChange={handleNewMember4Name}
 					placeholder="member4 name"
 				/>
 				<input
+					ref={inputMember4EmailRef}
 					type="text"
-					value={newMember4Email}
 					className="longInput"
-					onChange={handleNewMember4Email}
 					placeholder="member4 email"
 				/>
 				<br></br>
 				<input
+					ref={inputMember5NameRef}
 					type="text"
-					value={newMember5Name}
 					className="longInput"
-					onChange={handleNewMember5Name}
 					placeholder="member5 name"
 				/>
 				<input
+					ref={inputMember5EmailRef}
 					type="text"
-					value={newMember5Email}
 					className="longInput"
-					onChange={handleNewMember5Email}
 					placeholder="member5 email"
 				/>
 				<br></br>
