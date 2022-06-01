@@ -1,105 +1,148 @@
-import './App.css';
-import React, { useEffect, useState } from 'react';
-import AddStudent from './pages/AddStudent';
-import AddTeam from './pages/AddTeam';
-import SearchTeam from './pages/SearchTeam';
-import SearchStudent from './pages/SearchStudent';
-import Messages from './pages/Messages';
-import SignIn from './pages/SignIn';
-import Register from './pages/Register';
-
+import "./App.css";
+import React, { useEffect, useState, useReducer } from "react";
+import AddStudent from "./pages/AddStudent";
+import AddTeam from "./pages/AddTeam";
+import SearchTeam from "./pages/SearchTeam";
+import SearchStudent from "./pages/SearchStudent";
+import Messages from "./pages/Messages";
+import SignIn from "./pages/SignIn";
+import SignOut from "./pages/SignOut";
+import Register from "./pages/Register";
+import AllUsers from "./pages/AllUsers";
+import AboutUser from "./pages/AboutUser";
+import Footer from "./pages/Footer";
+import LoggedInUserContext from "./contexts/LoggedInUserContext";
 import {
 	BrowserRouter,
 	NavLink,
 	Routes,
 	Route,
 	Navigate,
-} from 'react-router-dom';
-import axios from 'axios';
+} from "react-router-dom";
+import { initState, reducer, ReducerContext } from "./contexts/ReducerContext";
+import axios from "axios";
 
 function App() {
 	const [studentsList, setStudentsList] = useState([]);
-
 	const [teamsList, setTeamsList] = useState([]);
+	const [usersList, setUsersList] = useState([]);
+	// const [images, setImages] = useState([]);
+	// const [base64, setBase64] = useState([]);
+	const [state, dispatch] = useReducer(reducer, initState);
 
 	useEffect(() => {
-		axios.get('http://localhost:3000/data/students.json').then((res) => {
+		axios.get("http://localhost:3000/data/students.json").then((res) => {
 			const students = res.data;
 			setStudentsList(students);
 		});
 	}, []);
 
 	useEffect(() => {
-		console.log('kupa');
-		axios.get('http://localhost:3000/data/teams.json').then((res) => {
+		axios.get("http://localhost:3000/data/teams.json").then((res) => {
 			const teams = res.data;
 			setTeamsList(teams);
 		});
 	}, []);
+
+	useEffect(() => {
+		axios.get("http://localhost:3000/data/users.json").then((res) => {
+			const users = res.data;
+			setUsersList(users);
+		});
+	}, []);
+
+	// useEffect(() => {
+	// 	console.log("image");
+	// 	axios
+	// 		.get("https://picsum.photos/70/100")
+	// 		.then((res) => {
+	// 			console.log(res);
+	// 			setImages(res.data.message);
+	// 		})
+	// 		.catch((err) => console.log(err));
+	// });
 
 	return (
 		<>
 			<header>
 				<h2>Find your new teammates!</h2>
 			</header>
-			<main>
-				<BrowserRouter>
-					<nav>
-						<NavLink to='/signin'>Sign In</NavLink>
-						<NavLink to='/searchStudent'>Search for students</NavLink>
-						<NavLink to='/addStudent'>Add your notice</NavLink>
-						<NavLink to='/searchTeam'>Search for teams</NavLink>
-						<NavLink to='/addTeam'>Add your team notice</NavLink>
-					</nav>
+			<ReducerContext.Provider value={[state, dispatch]}>
+				<LoggedInUserContext.Provider value={useState("")}>
+					<main>
+						<BrowserRouter>
+							<nav>
+								<NavLink to="/signin">Sign In</NavLink>
+								<NavLink to="/signout">Sign Out</NavLink>
+								<NavLink to="/searchStudent">Search for students</NavLink>
+								<NavLink to="/addStudent">Add your notice</NavLink>
+								<NavLink to="/searchTeam">Search for teams</NavLink>
+								<NavLink to="/addTeam">Add your team notice</NavLink>
+								<NavLink to="/allusers">Show all users</NavLink>
+							</nav>
 
-					<Routes>
-						<Route
-							path='/'
-							element={<Navigate replace to='/searchStudent' />}
-						/>
-
-						<Route path='/signin' element={<SignIn />} />
-
-						<Route path='/register' element={<Register />} />
-
-						<Route
-							path='/searchStudent'
-							element={<SearchStudent studentsList={studentsList} />}
-						/>
-
-						<Route
-							path='/addStudent'
-							element={
-								<AddStudent
-									studentsList={studentsList}
-									setStudentsList={setStudentsList}
+							<Routes>
+								<Route
+									path="/"
+									element={<Navigate replace to="/searchStudent" />}
 								/>
-							}
-						/>
 
-						<Route
-							path='/searchTeam'
-							element={<SearchTeam teamsList={teamsList} />}
-						/>
+								<Route path="/signin" element={<SignIn />} />
 
-						<Route
-							path='/addTeam'
-							element={
-								<AddTeam teamsList={teamsList} setTeamsList={setTeamsList} />
-							}
-						/>
+								<Route path="/signout" element={<SignOut />} />
 
-						<Route path='/message' element={<Messages />} />
-					</Routes>
-				</BrowserRouter>
-			</main>
-			{/* <footer>footer</footer> */}
+								<Route path="/register" element={<Register />} />
+
+								<Route
+									path="/searchStudent"
+									element={<SearchStudent studentsList={studentsList} />}
+								/>
+
+								<Route
+									path="/addStudent"
+									element={
+										<AddStudent
+											studentsList={studentsList}
+											setStudentsList={setStudentsList}
+										/>
+									}
+								/>
+
+								<Route
+									path="/searchTeam"
+									element={<SearchTeam teamsList={teamsList} />}
+								/>
+
+								<Route
+									path="/addTeam"
+									element={
+										<AddTeam
+											teamsList={teamsList}
+											setTeamsList={setTeamsList}
+										/>
+									}
+								/>
+
+								<Route
+									path="/allusers"
+									element={<AllUsers usersList={usersList} />}
+								/>
+
+								<Route
+									path="/aboutuser"
+									element={<AboutUser usersList={usersList} />}
+								/>
+
+								<Route path="/message" element={<Messages />} />
+							</Routes>
+						</BrowserRouter>
+					</main>
+
+					<Footer />
+				</LoggedInUserContext.Provider>
+			</ReducerContext.Provider>
 		</>
 	);
-	//return <Main toDosList={toDosList} setToDoList={setToDoList}/>
 }
 
-// const App = () => {
-
-// }
 export default App;

@@ -1,0 +1,9 @@
+[
+    { "name": "Jan Kowalski", "email": "jankowalski@gmail.com", "description": "Lubię placki" },
+    { "name": "Rafal Nowak", "email": "rafalnowak@gmail.com", "description": "Zjadłbym gofry" },
+    { "name": "John Travolta", "email": "johntravolta@gmail.com", "description": "Chcę do kina" },
+    { "name": "Alicja Bober", "email": "alicjabober@gmail.com", "description": "Nie wyspałem się" },
+    { "name": "Kazik Kmiecik", "email": "kazikkmiecik@gmail.com", "description": "Obejrzałbym serial" },
+    { "name": "Hieronim Berbelek", "email": "hieronimberbelek@gmail.com", "description": "Chcę wolne" },
+    { "name": "Hermiona Granger", "email": "hermionagranger@gmail.com", "description": "Mogę w spanko?" }
+]
