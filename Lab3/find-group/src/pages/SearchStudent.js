@@ -1,14 +1,26 @@
-import React from "react";
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
-import "./../styles/Search.css";
+import React from 'react';
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import './../styles/Search.css';
+
+import { auth } from '../firebase/init';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { getAllStudentNotices } from '../firebase/notice';
 
 const SearchStudent = (props) => {
+	const [userInny] = useAuthState(auth);
+
+	if (userInny) {
+		(async () => {
+			console.log(await getAllStudentNotices(userInny));
+		})();
+	}
+
 	const { studentsList } = props;
 
-	const [descriptionQuery, setDescriptionQuery] = useState("");
-	const [tagsQuery, setTagsQuery] = useState("");
-	const [classQuery, setClassQuery] = useState("");
+	const [descriptionQuery, setDescriptionQuery] = useState('');
+	const [tagsQuery, setTagsQuery] = useState('');
+	const [classQuery, setClassQuery] = useState('');
 
 	const handleSearchByDescription = (event) => {
 		setDescriptionQuery(event.target.value);
@@ -30,22 +42,22 @@ const SearchStudent = (props) => {
 			return (
 				<NavLink
 					key={i}
-					to="/message"
-					style={{ textDecoration: "none" }}
+					to='/message'
+					style={{ textDecoration: 'none' }}
 					state={{ receiver: it.person.name }}
 					exact
 				>
-					<div key={i} className="grid-item">
-						<p className="notice-name">{it.person.name}</p>
+					<div key={i} className='grid-item'>
+						<p className='notice-name'>{it.person.name}</p>
 
-						<label className="notice-label">Description</label>
-						<p className="notice-content">{it.description}</p>
+						<label className='notice-label'>Description</label>
+						<p className='notice-content'>{it.description}</p>
 
-						<label className="notice-label">Tags</label>
-						<p className="notice-content">{it.tags}</p>
+						<label className='notice-label'>Tags</label>
+						<p className='notice-content'>{it.tags}</p>
 
-						<label className="notice-label">Class</label>
-						<p className="notice-content">{it.class}</p>
+						<label className='notice-label'>Class</label>
+						<p className='notice-content'>{it.class}</p>
 					</div>
 				</NavLink>
 			);
@@ -53,32 +65,32 @@ const SearchStudent = (props) => {
 
 	return (
 		<div>
-			<div className="search-inputs">
-				<div className="search-input">
+			<div className='search-inputs'>
+				<div className='search-input'>
 					<label>Search by description</label>
 					<br></br>
 					<input
-						type="text"
+						type='text'
 						value={descriptionQuery}
 						onChange={handleSearchByDescription}
 					/>
 				</div>
-				<div className="search-input">
+				<div className='search-input'>
 					<label>Search by tags</label>
 					<br></br>
-					<input type="text" value={tagsQuery} onChange={handleSearchByTags} />
+					<input type='text' value={tagsQuery} onChange={handleSearchByTags} />
 				</div>
-				<div className="search-input">
+				<div className='search-input'>
 					<label>Search by class</label>
 					<br></br>
 					<input
-						type="text"
+						type='text'
 						value={classQuery}
 						onChange={handleSearchByClass}
 					/>
 				</div>
 			</div>
-			<div className="grid-container">{studentsListHTML}</div>
+			<div className='grid-container'>{studentsListHTML}</div>
 		</div>
 	);
 };

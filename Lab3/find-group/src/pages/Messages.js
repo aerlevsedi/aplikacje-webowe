@@ -1,8 +1,8 @@
-import React from "react";
-import { useRef } from "react";
-import { useLocation } from "react-router-dom";
-import "./SearchStudent.js";
-import "../styles/Messages.css";
+import React from 'react';
+import { useRef } from 'react';
+import { useLocation } from 'react-router-dom';
+import './SearchStudent.js';
+import '../styles/Messages.css';
 
 const Messages = () => {
 	const location = useLocation();
@@ -13,7 +13,7 @@ const Messages = () => {
 
 	const handleSendMessage = () => {
 		window.confirm("You've sent a message!");
-		inputMessageRef.current.value = "";
+		inputMessageRef.current.value = '';
 	};
 
 	return (
@@ -21,16 +21,16 @@ const Messages = () => {
 			<label>Message will be send to {receiver}</label>
 			<br></br>
 			<input
-				className="message-input"
+				className='message-input'
 				ref={inputMessageRef}
 				autoFocus
-				placeholder="write here your message"
+				placeholder='write here your message'
 			></input>
 			<br></br>
 			<input
-				type="button"
-				className="longButton"
-				value="Send"
+				type='button'
+				className='longButton'
+				value='Send'
 				onClick={handleSendMessage}
 			></input>
 		</div>

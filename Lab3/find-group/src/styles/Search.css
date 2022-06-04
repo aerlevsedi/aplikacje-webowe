@@ -65,6 +65,21 @@
 	overflow-x: hidden;
 }
 
+.grid-item::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Handle */
+.grid-item::-webkit-scrollbar-thumb {
+  background: rgb(164, 163, 163); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.grid-item::-webkit-scrollbar-thumb:hover {
+  background: black; 
+}
+
 .grid-item-team {
 	background-color: lightgray;
 	color: black;
@@ -76,6 +91,21 @@
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
+
+.grid-item-team::-webkit-scrollbar {
+	width: 10px;
+  }
+  
+  /* Handle */
+  .grid-item-team::-webkit-scrollbar-thumb {
+	background: rgb(164, 163, 163); 
+	border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  .grid-item-team::-webkit-scrollbar-thumb:hover {
+	background: black; 
+  }
 
 .grid-container-inputs {
 	display: grid;
@@ -93,6 +123,11 @@
 } */
 
 .grid-item:hover {
+	background-color: gray;
+	cursor: pointer;
+}
+
+.grid-item-team:hover {
 	background-color: gray;
 	cursor: pointer;
 }

@@ -12,6 +12,7 @@ import AllUsers from './pages/AllUsers';
 import AboutUser from './pages/AboutUser';
 import Footer from './pages/Footer';
 import Login from './pages/Login';
+import MyNotices from './pages/MyNotices';
 import LoggedInUserContext from './contexts/LoggedInUserContext';
 import {
 	BrowserRouter,
@@ -84,8 +85,9 @@ function App() {
 										Log Out {userInny.displayName}{' '}
 									</button>
 								)) || <NavLink to='/login'>Login</NavLink>}
-								<NavLink to='/signin'>Sign In</NavLink>
-								<NavLink to='/signout'>Sign Out</NavLink>
+								{/* <NavLink to='/signin'>Sign In</NavLink>
+								<NavLink to='/signout'>Sign Out</NavLink> */}
+								<NavLink to='/myNotices'>My notices</NavLink>
 								<NavLink to='/searchStudent'>Search for students</NavLink>
 								<NavLink to='/addStudent'>Add your notice</NavLink>
 								<NavLink to='/searchTeam'>Search for teams</NavLink>
@@ -100,6 +102,8 @@ function App() {
 								/>
 
 								<Route path='/login' element={<Login />} />
+
+								<Route path='/myNotices' element={<MyNotices />} />
 
 								<Route path='/signin' element={<SignIn />} />
 
