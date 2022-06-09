@@ -27,6 +27,7 @@ import axios from 'axios';
 import { auth } from './firebase/init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { logout } from './firebase/users';
+import EditNotice from './pages/EditNotice';
 
 function App() {
 	const [studentsList, setStudentsList] = useState([]);
@@ -152,6 +153,8 @@ function App() {
 								/>
 
 								<Route path='/message' element={<Messages />} />
+
+								<Route path='/editNotice' element={<EditNotice />} />
 							</Routes>
 						</BrowserRouter>
 					</main>

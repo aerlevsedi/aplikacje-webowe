@@ -22,6 +22,20 @@ export const addNewStudentNotice = async (user, description, tags, classes) => {
 	}
 };
 
+export const updateStudentNotice = async (user, description, tags, classes) => {
+	try {
+		await addDoc(collection(firestore, 'studentNotices'), {
+			uid: user.uid,
+			description: description,
+			tags: tags,
+			classes: classes,
+			created: Timestamp.now(),
+		});
+	} catch (err) {
+		console.log({ err });
+	}
+};
+
 export const getAllStudentNotices = async (user) => {
 	const q = query(
 		collection(firestore, 'studentNotices'),

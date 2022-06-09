@@ -16,6 +16,8 @@ const MyNotices = (props) => {
 	// 	})();
 	// }
 
+	if (!userInny) return null;
+
 	const [studentsList, setStudentsList] = useState([]);
 
 	const getStudentNotices = async () => {
@@ -35,7 +37,7 @@ const MyNotices = (props) => {
 				key={i}
 				to='/editNotice'
 				style={{ textDecoration: 'none' }}
-				state={{ receiver: it.name }}
+				state={{ notice: it }}
 				exact
 			>
 				<div key={i} className='grid-item'>
